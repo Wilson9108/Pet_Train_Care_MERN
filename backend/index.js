@@ -11,12 +11,9 @@ const express= require("express")
 const app = express()
 const cors = require("cors")
 const path = require("path")
-
-const distFolder = path.join(__dirname,'../frontend/dist')
+const distFolder =path.join(__dirname,'../frontend/dist')
 console.log(distFolder)
-
 app.use(cors())
-
 app.use(express.json())
 app.use('/user',userRouter)
 app.use('/admin',adminRouter)
@@ -25,9 +22,7 @@ app.use('/trainingamount',trainingAmountRouter)
 app.use('/petdayscare',petDaysCareRouter)
 app.use('/petdayscareamount',petDaysCareAmountRouter)
 app.use(express.static(distFolder))
-// console.log(path.join(distFolder,'index.html'))
 app.get('*',(_,res)=>{
-    console.log("all routes")
     res.sendFile(path.join(distFolder,'index.html'))
 })
 app.listen("5504",()=>{

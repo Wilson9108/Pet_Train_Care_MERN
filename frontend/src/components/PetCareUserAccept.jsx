@@ -49,7 +49,7 @@ export default function PetCareUserAccept() {
                 backgroundAttachment: "fixed",
                 color: "white"
             }}>
-                {acceptData.length > 0 ?
+                {statusOne.length > 0 ?
                     <><h1 className={style.tableHeading}>User Accepted Pet Days Care Data</h1>
                         <form className={style.searchItemForm}>
                             <div className={style.searchItemBox}>

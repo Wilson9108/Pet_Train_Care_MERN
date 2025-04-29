@@ -11,9 +11,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon backend/index",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "start": "nodemon backend/index.js",
+    "build": "npm install  && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "ISC",

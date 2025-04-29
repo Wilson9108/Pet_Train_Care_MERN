@@ -44,7 +44,7 @@ export default function TrainingCareUserAccept() {
                 backgroundAttachment: "fixed",
                 color: "white"
             }}>
-                {acceptData.length > 0 ?
+                {statusOne.length > 0 ?
                     <>
                         <h1 className={style.tableHeading}>User Accepted Training Data</h1>
                         <form className={style.searchItemForm}>

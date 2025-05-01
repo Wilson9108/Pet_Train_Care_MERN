@@ -99,7 +99,8 @@ export default function PetDaysCareResponse() {
                                             <tr>
                                                 <td style={{ backgroundColor: "rgb(35, 35, 35)", color: "white" }}>{(pages-1)*3+index+1}</td>
                                                 <td>{item.petcareandusers.fullName}</td>
-                                                <td>{item.petName}</td>
+                                                <td >{item.petName.trim().toLowerCase().trim().startsWith(searchItem.toLowerCase().trim())&&searchItem!==""?
+                                                       <> <span style={{backgroundColor:"yellow"}}>{item.petName.substring(0,searchItem.length)}</span><span>{item.petName.substring(searchItem.length)}</span></>:item.petName}</td>
                                                 <td>{item.petBreed}</td>
                                                 <td>{item?.petcareandamounts?.petAmount} Rs</td>
                                                 <td>{item?.petcareandamounts?.petDescription}</td>

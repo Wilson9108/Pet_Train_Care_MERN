@@ -10,7 +10,7 @@ export default function UserPlacedPetCareData() {
     const [responseData, setResponseData] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [searchItem, setSearchItem] = useState("")
-    const [pages,setPages]=useState(1)
+    const [pages, setPages] = useState(1)
 
     async function getResponseData() {
         setIsLoading(true)
@@ -48,9 +48,9 @@ export default function UserPlacedPetCareData() {
     }
 
     const filteredData = responseData.filter(data => data.petName.toLowerCase().startsWith(searchItem.toLowerCase().trim()))
-    const totalPages = Array(Math.ceil(responseData.length/3)).fill(0)
+    const totalPages = Array(Math.ceil(responseData.length / 3)).fill(0)
     // console.log(totalPages.length>pages)
-    console.log(pages ===1)
+    console.log(pages === 1)
 
     return (
         <>
@@ -91,12 +91,13 @@ export default function UserPlacedPetCareData() {
                                             <th>MobileNumber</th>
                                         </tr>
                                     </thead>
-                                    {filteredData.slice(pages*3-3,pages*3).map((item, index) => (
+                                    {filteredData.slice(pages * 3 - 3, pages * 3).map((item, index) => (
                                         <tbody key={item._id}>
                                             <tr>
-                                            <td style={{ backgroundColor: "rgb(35, 35, 35)", color: "white" }}>{(pages-1)*3+index+1}</td>
-                                            <td>{item.petcareandusers.fullName}</td>
-                                                <td>{item.petName}</td>
+                                                <td style={{ backgroundColor: "rgb(35, 35, 35)", color: "white" }}>{(pages - 1) * 3 + index + 1}</td>
+                                                <td>{item.petcareandusers.fullName}</td>
+                                                <td >{item.petName.trim().toLowerCase().trim().startsWith(searchItem.toLowerCase().trim()) && searchItem !== "" ?
+                                                    <> <span style={{ backgroundColor: "yellow" }}>{item.petName.substring(0, searchItem.length)}</span><span>{item.petName.substring(searchItem.length)}</span></> : item.petName}</td>
                                                 <td>{item.petAge}</td>
                                                 <td>{item.petBreed}</td>
                                                 <td>{item.gender}</td>
@@ -108,23 +109,23 @@ export default function UserPlacedPetCareData() {
                                 </table>
                             </div>
                         ) : <p className='text-center text-light'>No Results Found<b className='mx-2'>"{searchItem}"</b></p>}
-                        {filteredData.length >0 && 
-                        <div className={`${style.paginationContainer} d-flex justify-content-center `}>
-                            <div className={style.previousBtnContainer}>
-                                <button onClick={() => setPages((prev) => prev - 1)} disabled={pages === 1}><i class="fa-solid fa-backward"></i></button>
-                            </div>
-                            {totalPages.map((_, index) => (
-                                <><button className={style.paginationindexes} style={{ backgroundColor: index + 1 == pages ? "rgb(165, 140, 76)" : "", color: index + 1 === pages ? "white" : "black" }} onClick={() => setPages((prev) => index + 1)}>{index + 1}</button></>
-                            ))}
-                            {totalPages.length > pages &&
-                                <div className={style.forwardBtnContainer}>
-                                    <button onClick={() => setPages((prev) => prev + 1)}><i class="fa-solid fa-forward"></i></button>
+                        {filteredData.length > 0 &&
+                            <div className={`${style.paginationContainer} d-flex justify-content-center `}>
+                                <div className={style.previousBtnContainer}>
+                                    <button onClick={() => setPages((prev) => prev - 1)} disabled={pages === 1}><i class="fa-solid fa-backward"></i></button>
                                 </div>
-                            }
-                        </div>
-}
+                                {totalPages.map((_, index) => (
+                                    <><button className={style.paginationindexes} style={{ backgroundColor: index + 1 == pages ? "rgb(165, 140, 76)" : "", color: index + 1 === pages ? "white" : "black" }} onClick={() => setPages((prev) => index + 1)}>{index + 1}</button></>
+                                ))}
+                                {totalPages.length > pages &&
+                                    <div className={style.forwardBtnContainer}>
+                                        <button onClick={() => setPages((prev) => prev + 1)}><i class="fa-solid fa-forward"></i></button>
+                                    </div>
+                                }
+                            </div>
+                        }
                     </>
-                    : <h1 style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh",color:"black" }}>Your are Not Placed Any Requests</h1>}
+                    : <h1 style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh", color: "black" }}>Your are Not Placed Any Requests</h1>}
             </div>
         </>
     )

@@ -97,7 +97,8 @@ export default function TrainingResponse() {
                                         <tbody key={item._id}>
                                             <tr>
                                             <td style={{ backgroundColor: "rgb(35, 35, 35)", color: "white" }}>{(pages-1)*3+index+1}</td>
-                                                <td>{item.petName}</td>
+                                            <td >{item.petName.trim().toLowerCase().trim().startsWith(searchItem.toLowerCase().trim())&&searchItem!==""?
+                                                       <> <span style={{backgroundColor:"yellow"}}>{item.petName.substring(0,searchItem.length)}</span><span>{item.petName.substring(searchItem.length)}</span></>:item.petName}</td>
                                                 <td>{item.petBreed}</td>
                                                 <td>{item?.trainingamountdata?.amount} Rs</td>
                                                 <td>{item?.trainingamountdata?.duration} DAYS</td>

@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import style from '../cssFiles/homepage.module.css'
-import videoSrc from '../videos/dogVideo2.mp4'
+import videoSrc from '/petTrainAndCare/pet-train-care/frontend/public/dogVideo2.mp4'
 import { mycontext } from './Config'
 
 export default function HomePage() {

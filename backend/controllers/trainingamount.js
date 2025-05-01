@@ -1,4 +1,4 @@
-let {trainingAmount} = require("../models/trainingamount")
+let {trainingAmount} = require("../models/trainingAmount")
 
 let {training} =  require("../models/training")
 

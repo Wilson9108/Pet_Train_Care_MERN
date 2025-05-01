@@ -14,7 +14,7 @@ export default function HomePage() {
         <>
         <div className={style.mainContainer}>
             <header>
-                <video className={style.myVideo} src='/dogVideo2.mp4' width="100vw" height="100%" autoPlay loop muted
+                <video className={style.myVideo} src='' width="100vw" height="100%" autoPlay loop muted
                  ></video>
                  <div className={style.headerContent}>
                     <h1>Welcome <br></br> to the family</h1>

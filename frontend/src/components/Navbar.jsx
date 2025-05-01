@@ -44,7 +44,7 @@ export default function Navbar() {
                                             </Link>
                                             <ul class="dropdown-menu">
                                                 <li><Link class="dropdown-item" to="/petcaredata">PetCareData</Link></li>
-                                                <li><Link class="dropdown-item" to="/trainingData">TrainingCareData</Link></li>
+                                                <li><Link class="dropdown-item" to="/trainingData">TrainingData</Link></li>
                                             </ul>
                                         </li>
 

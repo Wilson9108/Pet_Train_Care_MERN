@@ -31,6 +31,9 @@ export default function TrainingAmount(){
         if(!duration){
             setDurationError("Duration is Mandatory")
             
+        }else if (!/^\d+(\.\d+)?$/.test(duration) || Number(duration) <= 0 || Number(duration)>365) {
+            setAmountError("Please enter a valid number between 1 and 365 for the days");
+            return
         }else{
             setDurationError("")
         }
@@ -77,7 +80,7 @@ export default function TrainingAmount(){
                                         <small className={style.errorMessage}>{amountError}</small>
                                     </div>
                                     <div className={style.inputgroup}>
-                                        <input type='text' placeholder='duration' value={duration}  onChange={(e)=>setDuration(e.target.value)} />
+                                        <input type='text' placeholder='duration' value={days}  onChange={(e)=>setDuration(e.target.value)} />
                                         <small className={style.errorMessage}>{durationError}</small>
                                     </div>
                                     <div className={style.inputgroup}>

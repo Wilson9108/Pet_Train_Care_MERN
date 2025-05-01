@@ -100,7 +100,7 @@ export default function TrainingResponse() {
                                                 <td>{item.petName}</td>
                                                 <td>{item.petBreed}</td>
                                                 <td>{item?.trainingamountdata?.amount} Rs</td>
-                                                <td>{item?.trainingamountdata?.duration}</td>
+                                                <td>{item?.trainingamountdata?.duration} DAYS</td>
                                                 <td>{item?.trainingamountdata?.description}</td>
                                                 <td>{item.trainingamountdata?.status === 0 && "Pending"}
                                                     {item.trainingamountdata?.status === 1 && "Accepted"}

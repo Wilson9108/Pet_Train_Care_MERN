@@ -1,36 +1,37 @@
-import { useState } from 'react'
+import { useState,lazy,Suspense } from 'react'
 
 import {BrowserRouter,Routes,Route, Router} from 'react-router-dom'
 import './App.css'
-import HomePage from './components/Homepage'
+const HomePage = lazy(()=>import('./components/Homepage.jsx'))
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import Signup from './components/Signup'
-import Signin from './components/Signin'
-import RouterError from './components/RouterError'
-import AdminSignin from './components/AdminSignin'
-import AdminSignup from './components/AdminSignup'
-import MyProfile from './components/MyProfile'
-import TrainingRequest from './components/TrainingRequest'
-import TrainingData from './components/TrainingData'
-import TrainingAmount from './components/TrainingAmount'
-import AdminProfile from './components/AdminProfile'
-import TrainingResponse from './components/TrainingResponse'
-import PetDaysCareRequest from './components/PetDaysCareRequest'
-import PetsDaysCareData from './components/PetsDaysCareData'
-import PetDaysCareAmount from './components/PetDaysCareAmount'
-import PetDaysCareResponse from './components/PetDaysCareResponse'
-import PetCareUserAccept from './components/PetCareUserAccept'
-import TrainingCareUserAccept from './components/TrainingUserAccept'
-import UserPlacedTrainingData from './components/UserPlacedTrainingData'
-import UserPlacedPetCareData from './components/UserPlacedPetCareData'
-
+const Signup = lazy(()=>import('./components/Signup'))
+const Signin = lazy(()=>import('./components/Signin'))
+const RouterError = lazy(()=>import('./components/RouterError'))
+const AdminSignin = lazy(()=>import('./components/AdminSignin'))
+const AdminSignup = lazy(()=>import('./components/AdminSignup'))
+const MyProfile=lazy(()=>import('./components/MyProfile'))
+const TrainingRequest = lazy(()=>import('./components/TrainingRequest'))
+const TrainingData= lazy(()=>import('./components/TrainingData'))
+const TrainingAmount = lazy(()=>import('./components/TrainingAmount'))
+const AdminProfile = lazy(()=>import('./components/AdminProfile'))
+const TrainingResponse = lazy(()=>import('./components/TrainingResponse'))
+const PetDaysCareRequest = lazy(()=>import('./components/PetDaysCareRequest'))
+const  PetsDaysCareData = lazy(()=>import('./components/PetsDaysCareData'))
+const  PetDaysCareAmount = lazy(()=>import('./components/PetDaysCareAmount'))
+const PetDaysCareResponse =lazy(()=>import('./components/PetDaysCareResponse'))
+const  PetCareUserAccept = lazy(()=>import('./components/PetCareUserAccept'))
+const  TrainingCareUserAccept = lazy(()=>import('./components/TrainingUserAccept'))
+const  UserPlacedTrainingData = lazy(()=>import('./components/UserPlacedTrainingData'))
+const UserPlacedPetCareData= lazy(()=>import('./components/UserPlacedPetCareData'))
 function App() {
   return (
     <>
     <BrowserRouter>
     <Navbar/>
+    <Suspense fallback={<div style={{display:"flex",justifyContent:"center",alignItems:"center",height:"100vh"}}><h1>Loading.....</h1></div>}>
     <Routes>
+
       <Route path="/" element={<HomePage/>}></Route>
       <Route path="/signup" element={<Signup/>}></Route>
       <Route path="/signin" element={<Signin/>}></Route>
@@ -52,7 +53,9 @@ function App() {
       <Route path='/petcareplaceddata' element={<UserPlacedPetCareData/>}></Route>
 
       <Route path="*" element={<RouterError/>}></Route>
+      
     </Routes>
+    </Suspense>
     <Footer/>
     </BrowserRouter>
 

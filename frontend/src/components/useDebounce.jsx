@@ -8,6 +8,6 @@ export default function useDebounce(value,delay){
         setTimeout(()=>setDebounceValue(value),delay)
 
 
-    },[])
+    },[value,delay])
     return debounceValue
 }

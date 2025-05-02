@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom'
 import style from '../cssFiles/trainingData.module.css'
 import petCareResponseImage from '../Images/petCareResponseImage.jpg'
 export default function PetDaysCareResponse() {
-    const { usertokenData, userId } = useContext(mycontext)
+    const { usertokenData, userId,searchItem, setSearchItem,debounce } = useContext(mycontext)
     const [isLoading, setIsLoading] = useState(false)
-    const [searchItem, setSearchItem] = useState("")
     console.log(usertokenData)
     console.log(usertokenData.userId)
     const [pages,setPages]=useState(1)
@@ -48,7 +47,7 @@ export default function PetDaysCareResponse() {
         getResponseData()
     }
 
-    const filteredData = responseData.filter(data => data.petName.toLowerCase().startsWith(searchItem.toLowerCase().trim()))
+    const filteredData = responseData.filter(data => data.petName.toLowerCase().startsWith(debounce.toLowerCase().trim()))
     const totalPages = Array(Math.ceil(responseData.length/3)).fill(0)
     // console.log(totalPages.length>pages)
     console.log(pages ===1)
@@ -99,8 +98,8 @@ export default function PetDaysCareResponse() {
                                             <tr>
                                                 <td style={{ backgroundColor: "rgb(35, 35, 35)", color: "white" }}>{(pages-1)*3+index+1}</td>
                                                 <td>{item.petcareandusers.fullName}</td>
-                                                <td >{item.petName.trim().toLowerCase().trim().startsWith(searchItem.toLowerCase().trim())&&searchItem!==""?
-                                                       <> <span style={{backgroundColor:"yellow"}}>{item.petName.substring(0,searchItem.length)}</span><span>{item.petName.substring(searchItem.length)}</span></>:item.petName}</td>
+                                                <td >{item.petName.trim().toLowerCase().trim().startsWith(debounce.toLowerCase().trim())&&debounce!==""?
+                                                       <> <span style={{backgroundColor:"yellow"}}>{item.petName.substring(0,debounce.length)}</span><span>{item.petName.substring(debounce.length)}</span></>:item.petName}</td>
                                                 <td>{item.petBreed}</td>
                                                 <td>{item?.petcareandamounts?.petAmount} Rs</td>
                                                 <td>{item?.petcareandamounts?.petDescription}</td>

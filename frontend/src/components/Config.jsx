@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from 'react'
 import App from '../App'
 export const mycontext = createContext()
+import useDebounce from './useDebounce'
 export default function Config() {
     const [usertokenData, setUserTokenData] = useState("")
     const [admintokenData,setAdminTokenData] = useState("")
@@ -14,6 +15,11 @@ export default function Config() {
     const userId = usertokenData.userId
     let usertoken = localStorage.getItem("usertoken")
     let admintoken = localStorage.getItem("admintoken")
+
+    //debounce
+    const [searchItem, setSearchItem] = useState("")
+    const debounce=useDebounce(searchItem,500)
+
     
     //handle user logout
     async function handleLogout() {
@@ -121,7 +127,7 @@ export default function Config() {
     return (
         <>
 
-            <mycontext.Provider value={{handleAdminLogout,loading,setLoading, handleLogout,handlePetCareAccept,petDaysCareId,setIsAdminLoggedIn,userId,admintoken,usertoken,isUserLoggedIn,isAdminLoggedIn, verifyToken,setIsUserLoggedIn,adminVerifyToken, trainingId, usertokenData, handleAccept,admintokenData }}>
+            <mycontext.Provider value={{searchItem,setSearchItem,debounce,handleAdminLogout,loading,setLoading, handleLogout,handlePetCareAccept,petDaysCareId,setIsAdminLoggedIn,userId,admintoken,usertoken,isUserLoggedIn,isAdminLoggedIn, verifyToken,setIsUserLoggedIn,adminVerifyToken, trainingId, usertokenData, handleAccept,admintokenData }}>
                 <App />
             </mycontext.Provider>
 

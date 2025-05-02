@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 
 import style from '../cssFiles/trainingData.module.css'
 import trainingAcceptImage from '../Images/trainingAcceptImage.jpg'
-
-
+import { mycontext } from './Config'
 export default function TrainingCareUserAccept() {
     const [acceptData, setAcceptData] = useState([])
-    const [searchItem, setSearchItem] = useState("")
+    const {searchItem, setSearchItem,debounce} = useContext(mycontext)
     const [pages, setPages] = useState(1)
 
     async function fetchUserAcceptAndReject() {
@@ -25,7 +24,7 @@ export default function TrainingCareUserAccept() {
 
     
     const statusOne = acceptData.filter(data => data?.trainingandamount?.status === 1)
-    const filteredData = statusOne.filter(data => data.petName.toLowerCase().startsWith(searchItem.toLowerCase().trim()))
+    const filteredData = statusOne.filter(data => data.petName.toLowerCase().startsWith(debounce.toLowerCase().trim()))
     console.log(statusOne)
     const totalPages = Array(Math.ceil(statusOne.length / 3)).fill(0)
     // console.log(totalPages.length>pages)
@@ -77,8 +76,8 @@ export default function TrainingCareUserAccept() {
                                                         <>
                                                             <td style={{ backgroundColor: "rgb(35, 35, 35)", color: "white" }}>{(pages - 1) * 3 + index + 1}</td>
                                                             <td>{item.userandtraining?.fullName}</td>
-                                                            <td >{item.petName.trim().toLowerCase().trim().startsWith(searchItem.toLowerCase().trim())&&searchItem!==""?
-                                                       <> <span style={{backgroundColor:"yellow"}}>{item.petName.substring(0,searchItem.length)}</span><span>{item.petName.substring(searchItem.length)}</span></>:item.petName}</td>
+                                                            <td >{item.petName.trim().toLowerCase().trim().startsWith(debounce.toLowerCase().trim())&&debounce!==""?
+                                                       <> <span style={{backgroundColor:"yellow"}}>{item.petName.substring(0,debounce.length)}</span><span>{item.petName.substring(debounce.length)}</span></>:item.petName}</td>
                                                             <td>{item.petAge}</td>
                                                             <td>{item.petBreed}</td>
                                                             <td>{item?.trainingandamount?.amount}</td>

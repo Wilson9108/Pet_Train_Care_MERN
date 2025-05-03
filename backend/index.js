@@ -1,6 +1,6 @@
 
 const {connectMongo} = require("./dbConnection")
-connectMongo("mongodb+srv://wilsonpulivelugula:QimVoQQ9QHckyV9d@cluster1.b9q6w.mongodb.net/pet-train-adop?retryWrites=true&w=majority")
+connectMongo("mongodb://mongo:CcAFfRcqtqhvOwAsAVtSTiKAmbpnUsql@yamabiko.proxy.rlwy.net:13180/pet-train-adop?authSource=admin")
 const {userRouter} = require("./routers/user")
 const { adminRouter } = require("./routers/admin")
 const {trainingRouter} = require("./routers/training")

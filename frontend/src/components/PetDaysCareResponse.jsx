@@ -14,7 +14,7 @@ export default function PetDaysCareResponse() {
 
     async function getResponseData() {
         setIsLoading(true)
-        let response = await fetch(`http://localhost:5504/petdayscare/response/${usertokenData.userId}`, {
+        let response = await fetch(`https://pet-train-care.onrender.com/petdayscare/response/${usertokenData.userId}`, {
             method: "get"
         })
         let data = await response.json()
@@ -32,7 +32,7 @@ export default function PetDaysCareResponse() {
     }, [usertokenData])
 
     async function handleUserAccept(data) {
-        let response = await fetch(`http://localhost:5504/petdayscareamount/statusaccept/${data.petcareandamounts._id}`, {
+        let response = await fetch(`https://pet-train-care.onrender.com/petdayscareamount/statusaccept/${data.petcareandamounts._id}`, {
             method: "put"
         })
         console.log(response)
@@ -40,7 +40,7 @@ export default function PetDaysCareResponse() {
     }
 
     async function handleUserReject(data) {
-        let response = await fetch(`http://localhost:5504/petdayscareamount/statusreject/${data.petcareandamounts._id}`, {
+        let response = await fetch(`https://pet-train-care.onrender.com/petdayscareamount/statusreject/${data.petcareandamounts._id}`, {
             method: "put"
         })
         console.log(response)

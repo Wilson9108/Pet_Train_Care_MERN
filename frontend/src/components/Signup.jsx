@@ -70,7 +70,7 @@ export default function Signup() {
         if(!fname || !email || !password || !mobile){
             return
         }
-        let response = await fetch("http://localhost:5504/user", {
+        let response = await fetch("https://pet-train-care.onrender.com/user", {
             method: "post",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ fname, email, mobile, password })

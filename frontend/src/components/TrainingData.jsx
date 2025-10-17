@@ -20,7 +20,7 @@ export default function TrainingData() {
 
     async function getTrainingData() {
         setIsLoading(true)
-        let response = await fetch("http://localhost:5504/training", {
+        let response = await fetch("https://pet-train-care.onrender.com/training", {
             method: "get"
         })
         let data = await response.json()

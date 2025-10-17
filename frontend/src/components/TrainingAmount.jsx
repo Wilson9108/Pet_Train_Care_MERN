@@ -55,7 +55,7 @@ export default function TrainingAmount(){
             console.log("no admin token")
             return
         }
-        let response = await fetch("http://localhost:5504/trainingamount",{
+        let response = await fetch("https://pet-train-care.onrender.com/trainingamount",{
             method:"post",
             headers:{'content-type':"application/json"},
             body:JSON.stringify({amount,duration,description,trainingId,adminId})

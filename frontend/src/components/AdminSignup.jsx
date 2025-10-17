@@ -39,7 +39,7 @@ export default function AdminSignup() {
             return
         }
         
-        let response = await fetch("http://localhost:5504/admin/signup", {
+        let response = await fetch("https://pet-train-care.onrender.com/admin/signup", {
             method: "post",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ email, password })

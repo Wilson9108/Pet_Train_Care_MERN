@@ -41,7 +41,7 @@ export default function Config() {
         if (!token) {
             return
         }
-        let response = await fetch("http://localhost:5504/user/verifyToken", {
+        let response = await fetch("https://pet-train-care.onrender.com/user/verifyToken", {
             method: "get",
             headers: { 'Authorization': `Bearer ${token}` }
         })
@@ -58,7 +58,7 @@ export default function Config() {
     async function adminVerifyToken(token){
         // let admintoken =localStorage.getItem("admintoken")
 
-        let response = await fetch("http://localhost:5504/user/verifyToken",{
+        let response = await fetch("https://pet-train-care.onrender.com/user/verifyToken",{
             method:"get",
             headers:{'Authorization':`Bearer ${token}`}
         })

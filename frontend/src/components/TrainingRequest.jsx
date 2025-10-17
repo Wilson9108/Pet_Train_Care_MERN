@@ -56,7 +56,7 @@ export default function TrainingRequest(){
         if(!petName||!petAge||!petBreed||!gender||!trainingType||!description){
             return 
         }
-        let response = await fetch("http://localhost:5504/training",{
+        let response = await fetch("https://pet-train-care.onrender.com/training",{
             method:"post",
             headers:{'content-type':"application/json"},
             body:JSON.stringify({petName,petAge,petBreed,gender,trainingType,description,mobile,status,userId})

@@ -11,7 +11,7 @@ export default function PetCareUserAccept() {
     const [pages, setPages] = useState(1)
 
     async function fetchUserAcceptAndReject() {
-        let response = await fetch("http://localhost:5504/petdayscare/response", {
+        let response = await fetch("https://pet-train-care.onrender.com/petdayscare/response", {
             method: "get"
         })
 

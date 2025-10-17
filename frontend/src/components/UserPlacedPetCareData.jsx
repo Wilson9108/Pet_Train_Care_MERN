@@ -13,7 +13,7 @@ export default function UserPlacedPetCareData() {
 
     async function getResponseData() {
         setIsLoading(true)
-        let response = await fetch(`http://localhost:5504/petdayscare/petcareplaceddata/${userId}`, {
+        let response = await fetch(`https://pet-train-care.onrender.com/petdayscare/petcareplaceddata/${userId}`, {
             method: "get"
         })
         let data = await response.json()
@@ -31,7 +31,7 @@ export default function UserPlacedPetCareData() {
     }, [usertokenData])
 
     async function handleUserAccept(item) {
-        let response = await fetch(`http://localhost:5504/trainingamount/statusaccept/${item.trainingamountdata._id}`, {
+        let response = await fetch(`https://pet-train-care.onrender.com/trainingamount/statusaccept/${item.trainingamountdata._id}`, {
             method: "put"
         })
         console.log(response)
@@ -39,7 +39,7 @@ export default function UserPlacedPetCareData() {
     }
     async function handleUserReject(item) {
         console.log("reject", item)
-        let response = await fetch(`http://localhost:5504/trainingamount/statusreject/${item.trainingamountdata._id}`, {
+        let response = await fetch(`https://pet-train-care.onrender.com/trainingamount/statusreject/${item.trainingamountdata._id}`, {
             method: "put"
         })
         console.log(response)

@@ -39,7 +39,7 @@ export default function TrainingAmount(){
             return
         }
         
-        let response = await fetch(`http://localhost:5504/petdayscareamount`,{
+        let response = await fetch(`https://pet-train-care.onrender.com/petdayscareamount`,{
             method:"post",
             headers:{'content-type':"application/json"},
             body:JSON.stringify({amount,description,petDaysCareId,adminId})

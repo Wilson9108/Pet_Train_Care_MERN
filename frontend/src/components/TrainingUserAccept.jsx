@@ -9,7 +9,7 @@ export default function TrainingCareUserAccept() {
     const [pages, setPages] = useState(1)
 
     async function fetchUserAcceptAndReject() {
-        let response = await fetch("http://localhost:5504/training/response", {
+        let response = await fetch("https://pet-train-care.onrender.com/training/response", {
             method: "get"
         })
         console.log(response)

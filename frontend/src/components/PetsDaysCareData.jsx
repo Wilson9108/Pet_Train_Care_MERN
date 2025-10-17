@@ -13,7 +13,7 @@ export default function PetsDaysCareData() {
 
     async function getPetCareData() {
         setIsLoading(true)
-        let response = await fetch("http://localhost:5504/petdayscare", {
+        let response = await fetch("https://pet-train-care.onrender.com/petdayscare", {
             method: "get"
         })
         let data = await response.json()

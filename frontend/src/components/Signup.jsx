@@ -110,7 +110,7 @@ export default function Signup() {
                                 <small className={style.errorMessage}>{emailError}</small>
                             </div>
                             <div className={style.inputgroup}>
-                                <input type='text' value={mobile} placeholder='Mobile Number' onChange={(e) => setMobile(e.target.value)} />
+                                <input type='text' value={mobile} placeholder='Mobile Number' maxLength={10} onChange={(e) => setMobile(e.target.value)} />
                                 <small className={style.errorMessage}>{mobileError}</small>
                             </div>
                             <div className={style.inputgroup}>
